@@ -1,3 +1,7 @@
+// STILL WORKING ON THIS, BUY/SELL signals are way too off, will apply better logic
+// Cross band
+// EMA
+
 #region Using declarations
 using System;
 using System.Collections.Generic;
