@@ -1,6 +1,8 @@
 // For NT8
 // STILL WORKING ON THIS
 // BUY/SELL signals are working, logic:  channel expands while median line is crossed.
+	// however lookback isnt working only sell signal is given is both conditions 
+	// are met by a SINGLE candle, thats a problem as this occurance  isnt common... so need to get lookback working
 // EMA to be added to cross refrence priceaction to increase fidelity of the buy/sell signal
 
 #region Using declarations
