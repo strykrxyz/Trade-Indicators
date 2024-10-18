@@ -1,6 +1,6 @@
-// STILL WORKING ON THIS, BUY/SELL signals are way too off, will apply better logic
-// Cross band
-// EMA
+// For NT8
+// STILL WORKING ON THIS, BUY/SELL signals are way too off, will apply better logic Cross band
+// EMA to be added to cross refrence priceaction to increase fidelity of the buy/sell signal
 
 #region Using declarations
 using System;
