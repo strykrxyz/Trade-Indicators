@@ -100,9 +100,9 @@ namespace NinjaTrader.NinjaScript.Indicators
             Values[2][0] = avg[0]; // Average
 
             // Trend detection
-            bool crossUp = b[1] < Close[1] && b[0] > Close[0];
-            bool crossDown = a[1] < Close[1] && a[0] > Close[0];
-            bullish[0] = BarsSince(crossDown) <= BarsSince(crossUp);
+            bool crossUp = Close[0] > avg[0] && Close[1] <= avg[1] && (a[0] - b[0]) > (a[1] - b[1]);
+            bool crossDown = Close[0] < avg[0] && Close[1] >= avg[1] && (a[0] - b[0]) > (a[1] - b[1]);
+            bullish[0] = crossUp ? true : crossDown ? false : bullish[1];
 
             // Draw fill
             Brush fillBrush = bullish[0] ?
@@ -111,8 +111,8 @@ namespace NinjaTrader.NinjaScript.Indicators
 
             Draw.Region(this,
                 "Fill" + CurrentBar.ToString(),
-                0,  // Start bar index
-                1,  // End bar index
+                CurrentBar - 1,  // Start bar index
+                CurrentBar,  // End bar index
                 avg,  // Upper series
                 b,  // Lower series
                 null,
@@ -175,16 +175,6 @@ namespace NinjaTrader.NinjaScript.Indicators
                     }
                 }
             }
-        }
-
-        private int BarsSince(bool condition)
-        {
-            for (int i = 0; i <= CurrentBar; i++)
-            {
-                if (condition)
-                    return i;
-            }
-            return CurrentBar;
         }
     }
 }
