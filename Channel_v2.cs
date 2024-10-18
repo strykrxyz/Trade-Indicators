@@ -1,3 +1,4 @@
+// OLDER BACKUP
 // 2nd version of the file, 
 // working on fixing buy/sell signal only
 // shading does not work
